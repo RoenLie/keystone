@@ -1,0 +1,40 @@
+{
+	"name": "keystone-core",
+	"version": "0.0.0",
+	"description": "description",
+	"author": {
+		"name": "Kristoffer Roen-Lie"
+	},
+	"keywords": [
+		"keystone"
+	],
+	"type": "module",
+	"types": "./src/index.ts",
+	"main": "./dist/index.js",
+	"scripts": {
+		"build": "pnpm run \"/^build::.+/\"",
+		"build::indexes": "pkg-toolbox build-indexes",
+		"build::exports": "pkg-toolbox build-exports",
+		"build::js": "vite build"
+	},
+	"dependencies": {
+		"@lit-labs/preact-signals": "^1.0.2",
+		"lit": "^3.1.2"
+	},
+	"exports": {
+		".": {
+			"types": "./src/index.ts",
+			"keystone": {
+				"default": "./src/index.ts"
+			},
+			"default": "./dist/index.js"
+		},
+		"./hooks": {
+			"types": "./src/hooks/index.ts",
+			"keystone": {
+				"default": "./src/hooks/index.ts"
+			},
+			"default": "./dist/hooks/index.js"
+		}
+	}
+}

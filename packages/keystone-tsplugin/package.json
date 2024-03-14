@@ -1,0 +1,19 @@
+{
+	"name": "keystone-tsplugin",
+	"version": "0.0.0",
+	"description": "Marks variables used as jsx tags as used.",
+	"author": {
+		"name": "Kristoffer Roen-Lie"
+	},
+	"keywords": [
+		"keystone"
+	],
+	"type": "module",
+	"main": "./dist/index.js",
+	"scripts": {
+		"build": "vite build"
+	},
+	"dependencies": {
+		"typescript": "^5.3.3"
+	}
+}

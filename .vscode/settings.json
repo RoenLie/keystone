@@ -1,0 +1,94 @@
+{
+	"editor.bracketPairColorization.enabled": true,
+	"editor.guides.bracketPairs": "active",
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.organizeImports.biome": "never",
+		"quickfix.biome": "explicit"
+	},
+	"editor.detectIndentation": false,
+	"editor.insertSpaces": false,
+	"[javascript]": {
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	},
+	"typescript.updateImportsOnFileMove.enabled": "always",
+	"typescript.preferences.importModuleSpecifier": "relative",
+	"typescript.preferences.importModuleSpecifierEnding": "js",
+	"typescript.tsdk": "node_modules\\typescript\\lib",
+	"peacock.color": "rgb(30,30,30)",
+	"workbench.colorCustomizations": {
+		"activityBar.activeBackground": "#373737",
+		"activityBar.background": "#373737",
+		"activityBar.foreground": "#e7e7e7",
+		"activityBar.inactiveForeground": "#e7e7e799",
+		"activityBarBadge.background": "#787828",
+		"activityBarBadge.foreground": "#e7e7e7",
+		"commandCenter.border": "#e7e7e799",
+		"sash.hoverBorder": "#373737",
+		"statusBar.background": "#1e1e1e",
+		"statusBar.foreground": "#e7e7e7",
+		"statusBarItem.hoverBackground": "#373737",
+		"statusBarItem.remoteBackground": "#1e1e1e",
+		"statusBarItem.remoteForeground": "#e7e7e7",
+		"titleBar.activeBackground": "#1e1e1e",
+		"titleBar.activeForeground": "#e7e7e7",
+		"titleBar.inactiveBackground": "#1e1e1e99",
+		"titleBar.inactiveForeground": "#e7e7e799"
+	},
+	"restoreTerminals.runOnStartup": false,
+	"restoreTerminals.terminals": [
+		{
+			"splitTerminals": [
+				{
+					"name": "root",
+					"commands": [
+						"clear"
+					]
+				}
+			]
+		},
+		{
+			"splitTerminals": [
+				{
+					"name": "keystone-core",
+					"commands": [
+						"cd packages/keystone-core"
+					]
+				}
+			]
+		},
+		{
+			"splitTerminals": [
+				{
+					"name": "keystone-vite",
+					"commands": [
+						"cd packages/keystone-vite"
+					]
+				}
+			]
+		},
+		{
+			"splitTerminals": [
+				{
+					"name": "keystone-eslint",
+					"commands": [
+						"cd packages/keystone-eslint"
+					]
+				}
+			]
+		},
+		{
+			"splitTerminals": [
+				{
+					"name": "keystone-tsplugin",
+					"commands": [
+						"cd packages/keystone-tsplugin"
+					]
+				}
+			]
+		},
+	],
+}

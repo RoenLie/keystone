@@ -1,0 +1,15 @@
+{
+	"root": true,
+	"parser": "@typescript-eslint/parser",
+	"extends": [
+		"@roenlie/eslint-config"
+	],
+	"plugins": [
+		"eslint-plugin-keystone"
+	],
+	"rules": {
+		"lit/no-invalid-html": "off",
+		"lit/no-unclosed-tag": "off",
+		"eslint-plugin-keystone/mark-as-used": "warn"
+	}
+}

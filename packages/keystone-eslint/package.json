@@ -1,0 +1,23 @@
+{
+	"name": "eslint-plugin-keystone",
+	"version": "0.0.0",
+	"description": "description",
+	"author": {
+		"name": "Kristoffer Roen-Lie"
+	},
+	"keywords": [
+		"keystone"
+	],
+	"type": "module",
+	"main": "./dist/index.cjs",
+	"scripts": {
+		"build": "vite build"
+	},
+	"devDependencies": {
+		"@typescript-eslint/parser": "^7.2.0",
+		"@typescript-eslint/rule-tester": "^7.2.0",
+		"@typescript-eslint/utils": "^7.2.0",
+		"vite": "^5.1.6",
+		"vitest": "^1.3.0"
+	}
+}
