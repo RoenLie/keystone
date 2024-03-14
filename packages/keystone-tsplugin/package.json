@@ -9,7 +9,7 @@
 		"keystone"
 	],
 	"type": "module",
-	"main": "./dist/index.js",
+	"main": "./dist/index.cjs",
 	"scripts": {
 		"build": "vite build"
 	},

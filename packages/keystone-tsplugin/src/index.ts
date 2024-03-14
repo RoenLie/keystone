@@ -11,7 +11,7 @@ function init(modules: { typescript: typeof TS }) {
 	function create(info: TS.server.PluginCreateInfo) {
 		// Diagnostic logging
 		info.project.projectService.logger.info(
-			'jsxlike-template-tsplugin: ' + new Date(Date.now()).toISOString(),
+			'keystone-tsplugin: ' + new Date(Date.now()).toISOString(),
 		);
 
 		// Set up decorator object
