@@ -293,7 +293,7 @@ export class KeystoneTemplateTransformer {
 
 			childrenProp += str;
 			if (expr)
-				childrenProp += `\${${ expr }}`;
+				childrenProp += ` \${${ expr }} `;
 		}
 
 		if (childrenProp)

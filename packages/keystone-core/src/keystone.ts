@@ -7,17 +7,34 @@ export type KeystoneProps<T extends Record<string, any>> = {
 	children: TemplateResult<any>
 } & T
 
+
 export type SubProps<T extends (...args: any[]) => any> = Parameters<T>[0];
 
 
-export interface KeystoneComponent extends DirectiveClass {}
+export interface KeystoneHooks {
+	onConnected: (() => void)[];
+}
 
 
-export let activeFactory: (AsyncDirective & Record<keyof any, any>) | undefined = undefined;
+export interface KeystoneComponent extends DirectiveClass {
+
+}
+
+
+export interface KeystoneDirective extends AsyncDirective {
+	addHook<T extends keyof KeystoneHooks>(
+		hook: T,
+		callback: KeystoneHooks[T][number]
+	): void;
+}
+
+
+export let activeFactory: (KeystoneDirective & Record<keyof any, any>) | undefined = undefined;
 
 
 export function Keystone<Props extends Record<string, any>>(
-	create: (props: KeystoneProps<Props>) => (props: KeystoneProps<Props>) => TemplateResult,
+	create: (props: KeystoneProps<Props>) =>
+		(props: KeystoneProps<Props>) => TemplateResult,
 ) {
 	const Dir = class extends AsyncDirective {
 
@@ -25,9 +42,23 @@ export function Keystone<Props extends Record<string, any>>(
 		protected __dispose?: () => void;
 		protected __renderFn: (props: KeystoneProps<Props>) => TemplateResult;
 		protected __props: KeystoneProps<Props>;
+		protected __hooks: KeystoneHooks = {
+			onConnected: []
+		};
 
 		constructor(part: PartInfo) {
 			super(part);
+		}
+
+		public addHook<T extends keyof typeof this.__hooks>(
+			hook: T,
+			callback: typeof this.__hooks[T][number]
+		) {
+			const hookArr = this.__hooks[hook];
+			if (!hookArr)
+				throw new Error('Unknown hook: ' + hook);
+
+			hookArr.push(callback);
 		}
 
 		protected override reconnected(): void {
@@ -49,6 +80,10 @@ export function Keystone<Props extends Record<string, any>>(
 				activeFactory = this;
 				this.__renderFn = create(props);
 				activeFactory = undefined;
+
+				queueMicrotask(() => {
+					this.__hooks.onConnected.forEach(cb => cb());
+				})
 			}
 
 			return this.render();

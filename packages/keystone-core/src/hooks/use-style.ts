@@ -8,9 +8,13 @@ export function useStyle(stylesheet: CSSStyleSheet | ReturnType<typeof css>, lay
 		sheet = stylesheet;
 	}
 	else {
-		sheet = new CSSStyleSheet();
+		sheet = stylesheet.styleSheet!
 		sheet.replaceSync(stylesheet.cssText);
 	}
+
+	const alreadyExists = document.adoptedStyleSheets.some(s => s === sheet);
+	if (alreadyExists)
+		return;
 
 	if (layer) {
 		let styles = '';
